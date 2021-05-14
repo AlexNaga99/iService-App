@@ -1,0 +1,12 @@
+{
+  "name": "iService",
+  "displayName": "iService",
+  "expo": {
+    "name": "iService",
+    "slug": "iService",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
