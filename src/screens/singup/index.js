@@ -8,9 +8,13 @@ import { credentials_service } from '../../services/credentials';
 export default function singup() {
 
     const navigation = useNavigation();
+    const [lastName, setLastName] = useState('');
+    const [userName, setUserName] = useState('');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [address, setAddress] = useState('');
+    const [cellphone, setCellphone] = useState('');
 
     const handleRedirectSingIn = () => {
         navigation.reset({
@@ -22,9 +26,13 @@ export default function singup() {
         if(await isValid()){
 
             let data = {
-                username: name,
+                userName: userName,
+                lastName: lastName,
+                name: name,
                 email: email,
-                password: password
+                password: password,
+                phone: cellphone,
+                address: address
             }
 
             let isRegisterValid = await credentials_service.singUp(data);
@@ -44,7 +52,15 @@ export default function singup() {
 
     const isValid = async () => {
         if(!name){
-            alert('Preencha o campo de nome.');
+            alert('Preencha seu primeiro nome.');
+            return false;
+        }
+        if(!userName){
+            alert('Preencha o campo nome de usuário.');
+            return false;
+        }
+        if(!lastName){
+            alert('Preencha seu último nome.');
             return false;
         }
         if(!email){
@@ -53,6 +69,14 @@ export default function singup() {
         }
         if(!password){
             alert('Preencha o campo senha.');
+            return false;
+        }
+        if(!cellphone){
+            alert('Preencha o campo telefone.');
+            return false;
+        }
+        if(!address){
+            alert('Preencha o campo endereço.');
             return false;
         }
         return true
@@ -64,22 +88,48 @@ export default function singup() {
             <View style={styles.inputArea}>
                 <SignInput
                     IconPng={require('../../assets/person.png')}
-                    placeholder="Digite seu nome"
+                    placeholder="Primeiro nome"
                     value={name}
                     onChangeText={t => setName(t)}
                 />
                 <SignInput
+                    IconPng={require('../../assets/person.png')}
+                    placeholder="Ultimo nome"
+                    value={lastName}
+                    onChangeText={t => setLastName(t)}
+                />
+                <SignInput
+                    IconPng={require('../../assets/person.png')}
+                    placeholder="Nome de usuário"
+                    value={userName}
+                    onChangeText={t => setUserName(t)}
+                />
+                <SignInput
                     IconPng={require('../../assets/email.png')}
-                    placeholder="Digite seu e-mail"
+                    placeholder="E-mail"
                     value={email}
                     onChangeText={t => setEmail(t)}
                 />
                 <SignInput
                     IconPng={require('../../assets/lock.png')}
-                    placeholder="Digite sua senha"
+                    placeholder="Senha"
                     value={password}
                     onChangeText={t => setPassword(t)}
                     password={true}
+                />
+                <SignInput
+                    IconPng={require('../../assets/location_black_icon.png')}
+                    placeholder="Endereço completo"
+                    value={address}
+                    onChangeText={t => setAddress(t)}
+                    password={false}
+                />
+                <SignInput
+                    IconPng={require('../../assets/cell_icon.png')}
+                    placeholder="Celular"
+                    value={cellphone}
+                    onChangeText={t => setCellphone(t)}
+                    password={false}
                 />
                 <TouchableOpacity style={styles.customButton} onPress={handleSignClick}>
                     <Text style={styles.customButtonText}>CADASTRAR</Text>

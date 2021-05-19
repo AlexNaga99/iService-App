@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
 export default ({ IconPng, placeholder, value, onChangeText, password }) => {
     return (
         <View style={styles.input_body}>
-            <Image style={styles.icon_style} source={IconPng}/>
+            {IconPng && <Image style={styles.icon_style} source={IconPng}/>}
             <TextInput 
                 style={styles.input} 
                 placeholder={placeholder} 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, View, TouchableOpacity, ScrollView, RefreshControl, Image, Text, ActivityIndicator } from 'react-native';
+import { SafeAreaView, View, TouchableOpacity, ScrollView, RefreshControl, Image, Text, ActivityIndicator, Modal } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { service_provider } from '../../services/service_provider';
@@ -103,9 +103,6 @@ export default function ServiceProvider() {
                                                 <Text style={styles.serviceChooseButtonText}>Agendar</Text>
                                             </TouchableOpacity>
                                         </View>
-                                        {/* <View style={styles.serviceItem}>
-                                        <Text style={styles.serviceName}>Descrição: </Text><Text style={styles.servicePrice}>{item.Description}</Text>
-                                        </View> */}
                                     </View>
                                 );
                             })}
@@ -135,16 +132,20 @@ export default function ServiceProvider() {
                         </View>
                     }
                 </View>
-                <ServiceModal 
-                    show={visibleModal}
-                    setShow={setVisibleModal}
-                    user={userInfo}
-                    service={selectedService}
-                />
+            
             </ScrollView>
             <TouchableOpacity style={styles.backButton} onPress={handleBackPage}>
                 <Image style={styles.fav_icon} source={require('../../assets/arrow_back_icon.png')}/>
             </TouchableOpacity>
+            {/* {selectedService != null &&
+                <ServiceModal
+                    show={visibleModal}
+                    setShow={setVisibleModal}
+                    user={userInfo}
+                    service={selectedService}
+                    setService={setSelectedService}
+                />
+            } */}
         </SafeAreaView>
     )
 }

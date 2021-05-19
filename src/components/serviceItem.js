@@ -44,7 +44,7 @@ export default ({ data }) => {
         navigation.navigate('Service', {
             id: data.ID,
             name: data.Name
-        })
+        });
     }
 
     return(

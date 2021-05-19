@@ -127,5 +127,5 @@ export const styles = StyleSheet.create({
   },
   loadingIcon: {
     marginTop: '50px'
-  }
+  },
 });

@@ -42,15 +42,15 @@ export default function CustomTabBar({ state, navigation }) {
             <TouchableOpacity style={styles.custom_icon} onPress={() => redirectTo('Home')}>
                 <Image style={[{ opacity: state.index === 0 ? 1 : 0.5 }, styles.icon ]} source={require('../assets/home_icon.png')} />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.custom_icon} onPress={() => redirectTo('Search')}>
+            {/* <TouchableOpacity style={styles.custom_icon} onPress={() => redirectTo('Search')}>
                 <Image style={[{ opacity: state.index === 1 ? 1 : 0.5 }, styles.icon ]} source={require('../assets/search_icon.png')} />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             <TouchableOpacity style={styles.custom_icon_center} onPress={() => redirectTo('Appointments')}>
                 <Image style={styles.icon_center} source={require('../assets/calendar_icon.png')} />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.custom_icon} onPress={() => redirectTo('Favorites')}>
+            {/* <TouchableOpacity style={styles.custom_icon} onPress={() => redirectTo('Favorites')}>
                 <Image style={[{ opacity: state.index === 3 ? 1 : 0.5 }, styles.icon ]} source={require('../assets/favorite_icon.png')} />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             <TouchableOpacity style={styles.custom_icon} onPress={() => redirectTo('Profile')}>
                 <Image style={[{ opacity: state.index === 4 ? 1 : 0.5 }, styles.icon ]} source={require('../assets/profile_icon.png')} />
             </TouchableOpacity>

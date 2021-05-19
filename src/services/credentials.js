@@ -5,7 +5,7 @@ const credentials_service = {
     return request().post('/auth/login', body);
   },
   singUp: (body) => {
-    return request().post('/auth/register', body);
+    return request().post('/user', body);
   },
 }
 
